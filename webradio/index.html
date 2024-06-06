@@ -1,13 +1,29 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Svelte</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Cades</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="player">
+		<div class="imbox">
+			<img src="img.jpg" alt="AW">
+		</div>
+		<audio controls autoplay>
+			<source src="https://uk21freenew.listen2myradio.com/live.mp3?typeportmount=s1_30601_stream_812402602" type="audio/mp3">
+		</audio>
+	</div>
+</body>
+<nav>
+	<a href="#">Projeto Cades</a>
+	<ul class="list">
+	  <li><a href="#">Sobre</a></li>
+	  <li><a href="https://www.instagram.com/projeto.cades/">Contato</a></li>
+	</ul>
+	<button class="search">Search</button>
+	<button class="menu">Menu</button>
+  </nav>
 </html>
