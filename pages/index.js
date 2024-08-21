@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import useWebradioPlayer from '../hooks/radioscript';
 import '../static/globals.css';
 /** @jsxImportSource @emotion/react */
@@ -36,7 +36,7 @@ const videoStyle = css`
 
 export default function Home() {
   const [isPlaying, playIconRef, pauseIconRef] = useWebradioPlayer();
-
+  
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-black">
