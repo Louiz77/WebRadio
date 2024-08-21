@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import useWebradioPlayer from './radioscript';
+import useWebradioPlayer from '../hooks/radioscript';
 import '../static/globals.css';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
