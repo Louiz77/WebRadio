@@ -142,23 +142,107 @@
                 </div>
             </div>
     </section>
-    
-        <!-- Video -->
-        <section class="video-section py-5 text-center bg-dark">
-            <div class="container">
-                <video controls="" autoplay="" name="media"><source src="https://stream.cades.pro.br:8443/stream" type="audio/mpeg"></video>
-                <h1 class="text-white mb-4">AcampaCades</h1>
-                <p class="text-white mb-4">Conheça o nosso AcampaCades.</p>
-                <div class="embed-responsive embed-responsive-4by3">
-                    <iframe class="embed-responsive-item" src="/components/VideoAcampacades.mp4"></iframe>
-                </div>
+
+    <div class="radio-section py-5 bg-black text-white">
+        <div class="container">
+          <h1 class="display-4 fw-bold mb-4">WEBRADIO CADES</h1>
+          
+          <div class="custom-player mb-4">
+            <button id="playPauseBtn" class="play-pause-btn">
+              <i class="bi bi-play-fill"></i>
+            </button>
+            <div class="live-indicator">
+              <span class="live-dot"></span>
+              AO VIVO
             </div>
-        </section>
+            <button class="volume-btn">
+              <i class="bi bi-volume-up-fill"></i>
+            </button>
+          </div>
+          
+          <div class="instagram-link">
+            <a href="https://www.instagram.com/seu_perfil" target="_blank" class="btn btn-outline-light">
+              <i class="bi bi-instagram me-2"></i>Siga-nos no Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+
+    <!-- Video -->
+    <section class="video-section py-5 text-center bg-dark">
+        <div class="container">
+            <h1 class="text-white mb-4">AcampaCades</h1>
+            <p class="text-white mb-4">Conheça o nosso AcampaCades.</p>
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="/components/VideoAcampacades.mp4"></iframe>
+            </div>
+        </div>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <style>
+        .radio-section {
+          background-color: #000;
+          color: #fff;
+        }
+        .custom-player {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #1a1a1a;
+          padding: 10px 20px;
+          border-radius: 5px;
+        }
+        .play-pause-btn {
+          background-color: #022403; /* Cor verde vibrante */
+          border: none;
+          color: #fff;
+          font-size: 24px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        .play-pause-btn:hover {
+          background-color: #45a049; /* Cor verde um pouco mais escura no hover */
+        }
+        .play-pause-btn i {
+          margin-left: 3px; /* Ajuste fino para centralizar o ícone de play */
+        }
+        .volume-btn {
+          background: none;
+          border: none;
+          color: #fff;
+          font-size: 24px;
+          cursor: pointer;
+        }
+        .live-indicator {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        .live-dot {
+          width: 10px;
+          height: 10px;
+          background-color: #ff0000;
+          border-radius: 50%;
+          margin-right: 8px;
+          animation: blink 1s infinite;
+        }
+        @keyframes blink {
+          0% { opacity: 0; }
+          50% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      </style>
     <style>
         .img-nos{
             max-width: 100%;
@@ -183,5 +267,23 @@
             transform: scale(1.2);
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const audio = new Audio('URL_DO_SEU_STREAM_DE_AUDIO');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        
+        playPauseBtn.addEventListener('click', function() {
+            if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+            } else {
+            audio.pause();
+            playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+            }
+        });
+        
+        // Adicione aqui a lógica para o controle de volume, se necessário
+        });
+    </script>
 </body>
 </html>
