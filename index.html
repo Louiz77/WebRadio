@@ -149,7 +149,8 @@
           
           <div class="custom-player mb-4">
             <button id="playPauseBtn" class="play-pause-btn">
-              <i class="bi bi-play-fill"></i>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZUlEQVR4nO3ZsQ3AIBAEQfpv+p1cAQ7O2EYzEhH64MVmrAUAe83N89R8zXGLvHVfY5HwIm3SCmm1SSuk1SatkFabtEJabdIKabVJK6TVJq2QVpu0Qlpt0vpqWnPKt8L8fREAWHEBbnI+0BRFWvcAAAAASUVORK5CYII=" alt="Pause" id="pauseIcon" style="display:none;">
+              <i class="bi bi-play-fill" id="playIcon"></i>
             </button>
             <div class="live-indicator">
               <span class="live-dot"></span>
@@ -161,7 +162,7 @@
           </div>
           
           <div class="instagram-link">
-            <a href="https://www.instagram.com/seu_perfil" target="_blank" class="btn btn-outline-light">
+            <a href="https://www.instagram.com/projeto.cades/" target="_blank" class="btn btn-outline-light">
               <i class="bi bi-instagram me-2"></i>Siga-nos no Instagram
             </a>
           </div>
@@ -196,7 +197,7 @@
           border-radius: 5px;
         }
         .play-pause-btn {
-          background-color: #022403; /* Cor verde vibrante */
+          background-color: #e28c09;
           border: none;
           color: #fff;
           font-size: 24px;
@@ -208,15 +209,18 @@
           justify-content: center;
           cursor: pointer;
           transition: background-color 0.3s ease;
+          padding: 0;
         }
         .play-pause-btn:hover {
-          background-color: #45a049; /* Cor verde um pouco mais escura no hover */
+          background-color: #45a049;
         }
+        .play-pause-btn img,
         .play-pause-btn i {
-          margin-left: 3px; /* Ajuste fino para centralizar o ícone de play */
+          width: 24px;
+          height: 24px;
         }
         .volume-btn {
-          background: none;
+          background: white;
           border: none;
           color: #fff;
           font-size: 24px;
@@ -235,14 +239,14 @@
           background-color: #ff0000;
           border-radius: 50%;
           margin-right: 8px;
-          animation: blink 1s infinite;
+          animation: blink 1.5s infinite;
         }
         @keyframes blink {
           0% { opacity: 0; }
           50% { opacity: 1; }
           100% { opacity: 0; }
         }
-      </style>
+    </style>
     <style>
         .img-nos{
             max-width: 100%;
@@ -271,17 +275,21 @@
         document.addEventListener('DOMContentLoaded', function() {
         const audio = new Audio('https://stream.cades.pro.br:8443/stream');
         const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
         
         playPauseBtn.addEventListener('click', function() {
             if (audio.paused) {
+            audio.src = 'https://stream.cades.pro.br:8443/stream'; // Recarrega o stream
             audio.play();
-            playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'inline';
             } else {
             audio.pause();
-            playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+            playIcon.style.display = 'inline';
+            pauseIcon.style.display = 'none';
             }
         });
-        
         });
     </script>
 </body>
