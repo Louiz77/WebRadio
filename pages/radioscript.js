@@ -1,51 +1,44 @@
 import { useEffect, useState, useRef } from 'react';
 
 export default function useWebradioPlayer() {
-  const [audio, setAudio] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const playPauseButtonRef = useRef(null);
+  const audioRef = useRef(null);
   const playIconRef = useRef(null);
   const pauseIconRef = useRef(null);
 
   useEffect(() => {
-    const audioElement = new Audio('https://stream.cades.pro.br:8443/stream');
-    setAudio(audioElement);
+    // Cria uma nova instância de áudio
+    audioRef.current = new Audio('https://stream.cades.pro.br:8443/stream');
 
     const handlePlayPause = () => {
-      if (audioElement.paused) {
-        audioElement.play();
+      if (audioRef.current.paused) {
+        audioRef.current.play();
         setIsPlaying(true);
-        playIconRef.current.style.display = 'none';
-        pauseIconRef.current.style.display = 'inline';
+        if (playIconRef.current) playIconRef.current.style.display = 'none';
+        if (pauseIconRef.current) pauseIconRef.current.style.display = 'inline';
       } else {
-        audioElement.pause();
+        audioRef.current.pause();
         setIsPlaying(false);
-        playIconRef.current.style.display = 'inline';
-        pauseIconRef.current.style.display = 'none';
+        if (playIconRef.current) playIconRef.current.style.display = 'inline';
+        if (pauseIconRef.current) pauseIconRef.current.style.display = 'none';
       }
     };
 
-    if (typeof window !== 'undefined') {
-      const playPauseButton = document.getElementById('playPauseBtn');
-      if (playPauseButton) {
-        playPauseButtonRef.current = playPauseButton;
-        playIconRef.current = document.getElementById('playIcon');
-        pauseIconRef.current = document.getElementById('pauseIcon');
-
-        playPauseButtonRef.current.addEventListener('click', handlePlayPause);
-      }
+    const playPauseButton = document.getElementById('playPauseBtn');
+    if (playPauseButton) {
+      playPauseButton.addEventListener('click', handlePlayPause);
     }
 
     return () => {
-      if (playPauseButtonRef.current) {
-        playPauseButtonRef.current.removeEventListener('click', handlePlayPause);
+      if (playPauseButton) {
+        playPauseButton.removeEventListener('click', handlePlayPause);
       }
-      if (audioElement) {
-        audioElement.pause(); // Pausa o áudio antes de desmontar
-        setAudio(null); // Limpa a instância do áudio
+      if (audioRef.current) {
+        audioRef.current.pause(); // Pausa o áudio antes de desmontar
+        audioRef.current = null; // Limpa a referência do áudio
       }
     };
   }, []);
 
-  return [isPlaying, audio, playIconRef, pauseIconRef];
+  return [isPlaying, playIconRef, pauseIconRef];
 }

@@ -35,7 +35,7 @@ const videoStyle = css`
 `;
 
 export default function Home() {
-  const [isPlaying, audio, playIconRef, pauseIconRef] = useWebradioPlayer();
+  const [isPlaying, playIconRef, pauseIconRef] = useWebradioPlayer();
 
   return (
     <div>
@@ -262,8 +262,8 @@ export default function Home() {
             <div className="live-indicator">
               <span className="live-dot"></span> AO VIVO
             </div>
-            <button class="volume-btn">
-              <i class="bi bi-volume-up-fill"></i>
+            <button className="volume-btn">
+              <i className="bi bi-volume-up-fill"></i>
             </button>
           </div>
           <Link href="https://www.instagram.com/projeto.cades/" legacyBehavior target="_blank">
