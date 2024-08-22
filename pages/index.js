@@ -128,15 +128,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="programacao" className="section py-5 text-center second-section">
+      <section 
+      id="programacao" 
+      className="section py-5 text-center second-section"
+      style={{
+        background: 'linear-gradient(180deg, rgba(226,147,10,1) 0%, rgba(255,255,255,1) 15%)',
+      }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-md-6 text-md-left">
-              <h2 className="display-4">Veja nossa programação!</h2>
+              <h2 className="display-4 fw-bold">Veja nossa programação!</h2>
             </div>
             <div className="col-md-6 text-md-right">
-              <h3 className="mb-3">Programação</h3>
-              <p>
+              <h3 className="mb-3 fst-italic">Programação</h3>
+              <p className='fst-italic'>
                 Domingo | 09h00 - Culto
                 <br />
                 Quinta | 20h00- Culto de oração
@@ -176,7 +182,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section py-5">
+      <section 
+      className="section py-5"
+      >
         <div className="container">
           <h2 className="text-center mb-4">Manhã de Culto</h2>
           <div className="row">
@@ -246,8 +254,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section css={sectionStyle}>
-        <div css={containerStyle}>
+      <section css={sectionStyle}
+      style={{ background: 'radial-gradient(circle, rgba(226,147,10,0.9920343137254902) 0%, rgba(255,255,255,1) 70%)' }}
+      >
+        <div className='acampText' css={containerStyle}>
           <h1>AcampaCades</h1>
           <p>Conheça o nosso AcampaCades.</p>
           <div css={videoWrapperStyle}>
