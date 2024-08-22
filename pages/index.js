@@ -61,9 +61,9 @@ export default function Home() {
           <Navbar.Collapse id="navbarNav">
             <Nav className="m-auto">
               <Nav.Link href="https://forms.gle/Cmja3W4y1cacu4AB7">AcampaCades</Nav.Link>
+              <Nav.Link href="#webradio">Webradio</Nav.Link>
               <Nav.Link href="#programacao">Programação</Nav.Link>
               <Nav.Link href="#sobre">Sobre</Nav.Link>
-              <Nav.Link href="#webradio">Webradio</Nav.Link>
               <Button
                 variant="outline-light"
                 className="ml-2"
@@ -91,6 +91,39 @@ export default function Home() {
           </h1>
           <Link href="#" legacyBehavior>
             <a className="btn btn-light btn-lg mt-3">Visite-nos</a>
+          </Link>
+        </div>
+      </section>
+
+      <section id='webradio' className="section radio-section py-5 bg-black text-white">
+        <div className="container">
+          <h1 className="display-4 fw-bold mb-4">WEBRADIO CADES</h1>
+          <div className="custom-player mb-4">
+            <button id="playPauseBtn" className="play-pause-btn">
+            <img
+              id="playIcon"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABj0lEQVR4nO2ZPUsDQRCGHyNRiAgJKJjGxiY2amE6u1Qi+QWCf8EqvY0/wNJSS1srsVEbsbGziDYWWihYGATFj6wszMJyaOVddMZ94Dj27vaOl73deXcGEolEIkMHGMEADugCyxgQ4uQ4BGZRipOjJ+cXYBMYQ6mQOrANfEj7FlgDhlAmJLAInEbXj4F5FArxlGQ07uSeH6VdYBJlQgJVYAt4k2cegHVgGGVCAg3gIHr2HFhCoZBAG7iO+uwD0ygU4qkAG8Cz9HuS9ijKhARmgL2o/xWwgkIhgRZw8RfcgfuhEE9ZVrNHederrHbjKBMSqEu86f+GO3A5Cgk0gbOMO5hDoZDYHdxn3MEEyoQEajJf3ot2B0ULCSwAJ0W6g0EJQSb9KnAj3/SLwg4wRQ4kIf/t16ppn+wmlt9mJiAeaQuI6i1K2YJpbH1h4/3WWO3G6lLbxqpiYavbjpIPfRkRVcmHhvZ0UFV7gq70Tcq0sKg8qCR24VE5D8yVFXpWCj3OQumta6EY2rFSnk4kEujlE4Rx1mgQiGC0AAAAAElFTkSuQmCC"
+              alt="Play"
+              style={{ display: isPlaying ? 'none' : 'inline' }}
+              ref={playIconRef}
+            />
+            <img
+              id="pauseIcon"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZUlEQVR4nO3ZsQ3AIBAEQfpv+p1cAQ7O2EYzEhH64MVmrAUAe83N89R8zXGLvHVfY5HwIm3SCmm1SSuk1SatkFabtEJabdIKabVJK6TVJq2QVpu0Qlpt0vpqWnPKt8L8fREAWHEBbnI+0BRFWvcAAAAASUVORK5CYII="
+              alt="Pause"
+              style={{ display: isPlaying ? 'inline' : 'none' }}
+              ref={pauseIconRef}
+            />
+            </button>
+            <div className="live-indicator">
+              <span className="live-dot"></span> AO VIVO
+            </div>
+            <button className="volume-btn">
+              <i className="bi bi-volume-up-fill"></i>
+            </button>
+          </div>
+          <Link href="https://www.instagram.com/projeto.cades/" legacyBehavior target="_blank">
+            <a className="btn btn-outline-light instagram-link">Siga-nos no Instagram</a>
           </Link>
         </div>
       </section>
@@ -210,39 +243,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id='webradio' className="section radio-section py-5 bg-black text-white">
-        <div className="container">
-          <h1 className="display-4 fw-bold mb-4">WEBRADIO CADES</h1>
-          <div className="custom-player mb-4">
-            <button id="playPauseBtn" className="play-pause-btn">
-            <img
-              id="playIcon"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABj0lEQVR4nO2ZPUsDQRCGHyNRiAgJKJjGxiY2amE6u1Qi+QWCf8EqvY0/wNJSS1srsVEbsbGziDYWWihYGATFj6wszMJyaOVddMZ94Dj27vaOl73deXcGEolEIkMHGMEADugCyxgQ4uQ4BGZRipOjJ+cXYBMYQ6mQOrANfEj7FlgDhlAmJLAInEbXj4F5FArxlGQ07uSeH6VdYBJlQgJVYAt4k2cegHVgGGVCAg3gIHr2HFhCoZBAG7iO+uwD0ygU4qkAG8Cz9HuS9ijKhARmgL2o/xWwgkIhgRZw8RfcgfuhEE9ZVrNHederrHbjKBMSqEu86f+GO3A5Cgk0gbOMO5hDoZDYHdxn3MEEyoQEajJf3ot2B0ULCSwAJ0W6g0EJQSb9KnAj3/SLwg4wRQ4kIf/t16ppn+wmlt9mJiAeaQuI6i1K2YJpbH1h4/3WWO3G6lLbxqpiYavbjpIPfRkRVcmHhvZ0UFV7gq70Tcq0sKg8qCR24VE5D8yVFXpWCj3OQumta6EY2rFSnk4kEujlE4Rx1mgQiGC0AAAAAElFTkSuQmCC"
-              alt="Play"
-              style={{ display: isPlaying ? 'none' : 'inline' }}
-              ref={playIconRef}
-            />
-            <img
-              id="pauseIcon"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZUlEQVR4nO3ZsQ3AIBAEQfpv+p1cAQ7O2EYzEhH64MVmrAUAe83N89R8zXGLvHVfY5HwIm3SCmm1SSuk1SatkFabtEJabdIKabVJK6TVJq2QVpu0Qlpt0vpqWnPKt8L8fREAWHEBbnI+0BRFWvcAAAAASUVORK5CYII="
-              alt="Pause"
-              style={{ display: isPlaying ? 'inline' : 'none' }}
-              ref={pauseIconRef}
-            />
-            </button>
-            <div className="live-indicator">
-              <span className="live-dot"></span> AO VIVO
-            </div>
-            <button className="volume-btn">
-              <i className="bi bi-volume-up-fill"></i>
-            </button>
-          </div>
-          <Link href="https://www.instagram.com/projeto.cades/" legacyBehavior target="_blank">
-            <a className="btn btn-outline-light instagram-link">Siga-nos no Instagram</a>
-          </Link>
         </div>
       </section>
 
