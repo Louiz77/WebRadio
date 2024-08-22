@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import Head from 'next/head';
+import React from 'react';
 import useWebradioPlayer from '../hooks/radioscript';
 import '../static/globals.css';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Navbar, Nav, Container, Button  } from 'react-bootstrap';
 
 const sectionStyle = css`
   padding: 5rem 0;
@@ -36,74 +38,50 @@ const videoStyle = css`
 
 export default function Home() {
   const [isPlaying, playIconRef, pauseIconRef] = useWebradioPlayer();
-  
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-black">
-        <Link href="/" legacyBehavior>
-          <a className="navbar-brand">
-          <Image src="/logo.png" 
-          width={100} height={40} 
-          alt="Logo"
-          style={{
-            marginLeft: '50%',
-          }}
-          />
-          </a>
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav m-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="https://forms.gle/Cmja3W4y1cacu4AB7" legacyBehavior>
-                AcampaCades
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Webradio
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Programação
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Sobre
-              </a>
-            </li>
-            
-            <li className="nav-item">
-              <a className="btn btn-outline-light ml-2" 
-              href="#"
-              style={{
-                marginLeft: '15%',
-              }}>
+      <Head>
+        <title>Projeto Cades</title>
+      </Head>
+      <Navbar expand="lg" variant="dark" style={{ backgroundColor: 'black' }}>
+        <Container>
+          <Link href="/" legacyBehavior passHref>
+            <Navbar.Brand>
+              <Image
+                src="/logo.png"
+                width={100}
+                height={40}
+                alt="Logo"
+                
+              />
+            </Navbar.Brand>
+          </Link>
+          <Navbar.Toggle aria-controls="navbarNav" />
+          <Navbar.Collapse id="navbarNav">
+            <Nav className="m-auto">
+              <Nav.Link href="https://forms.gle/Cmja3W4y1cacu4AB7">AcampaCades</Nav.Link>
+              <Nav.Link href="#programacao">Programação</Nav.Link>
+              <Nav.Link href="#sobre">Sobre</Nav.Link>
+              <Nav.Link href="#webradio">Webradio</Nav.Link>
+              <Button
+                variant="outline-light"
+                className="ml-2"
+                href="#"
+              >
                 Contato
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
       <section
         className="section hero d-flex align-items-center justify-content-center text-center"
         style={{
           background: `url('/hero-image.jpg') no-repeat center center/cover`,
-          paddingTop: '5%',
-          paddingBottom: '15%',
+          paddingTop: '10%',
+          paddingBottom: '12%',
           
         }}
       >
@@ -117,7 +95,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section py-5 text-center second-section">
+      <section id="programacao" className="section py-5 text-center second-section">
         <div className="container">
           <div className="row">
             <div className="col-md-6 text-md-left">
@@ -139,6 +117,7 @@ export default function Home() {
       </section>
 
       <section
+        id='sobre'
         className="section text-white py-5"
         style={{ backgroundColor: 'black' }}
       >
@@ -146,20 +125,15 @@ export default function Home() {
           <div className="row align-items-center">
             <div className="col-md-6">
               <h2>Sobre nós</h2>
-              <p>
-                Nossa igreja atende a comunidade há mais de x anos. Acreditamos
-                em espalhar amor, esperança e fé através de nossos serviços e
-                atividades comunitárias.
+              <p>     
+              O Projeto Cades surgiu de forma natural, como um espaço de encontro para compartilhar amor e esperança através da mensagem de Cristo. 
+              Nossos cultos são momentos de comunhão, onde buscamos fortalecer uns aos outros, refletindo sobre a vida e crescendo juntos como comunidade.
               </p>
               <p>
-                Nossa igreja atende a comunidade há mais de x anos. Acreditamos
-                em espalhar amor, esperança e fé através de nossos serviços e
-                atividades comunitárias.
+              Com a música como um dos pilares, cada culto proporciona uma experiência tocante e inspiradora. A musicalização nos conecta de forma íntima à mensagem de Cristo, transformando nossos encontros em oportunidades para renovar a fé e encontrar consolo.
               </p>
               <p>
-                Nossa igreja atende a comunidade há mais de x anos. Acreditamos
-                em espalhar amor, esperança e fé através de nossos serviços e
-                atividades comunitárias.
+              Nosso propósito é unir a comunidade, vivenciando o amor de Cristo de maneira prática, inspirando mudanças positivas na sociedade. No Cades, acreditamos que cada encontro é uma chance de transformar vidas e semear esperança ao nosso redor.
               </p>
             </div>
             <div className="col-md-6">
@@ -239,7 +213,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section radio-section py-5 bg-black text-white">
+      <section id='webradio' className="section radio-section py-5 bg-black text-white">
         <div className="container">
           <h1 className="display-4 fw-bold mb-4">WEBRADIO CADES</h1>
           <div className="custom-player mb-4">
